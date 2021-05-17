@@ -30,3 +30,16 @@ def checkThatSumOf2NumbersIsLessThan100(a: Int, b: Int): Boolean = (a + b) match
 }
 
 def checkThatSumOf2NumbersMeetsAProperty(a: Int, b: Int)(f: Int => Boolean): Boolean = f(a + b)
+
+// Function Currying
+def op(a: Int, b: Int)(f: (Int, Int) => Int): Int = f(a, b)
+
+
+// Exercises
+def dropWhile(in: List[Int])(f: (Int) => Boolean): List[Int] = ??? // hint: use Lists filter() method
+def operateOverAllElementsOfAList(in: List[Int])(f: (Int) => Double): List[Double] = ??? // hint: use Lists map() method
+
+
+
+// def factorial(in: Int): Int = Range(1, in).toList.reduce(_ * _)
+

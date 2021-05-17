@@ -20,8 +20,8 @@ val helloWorld: String => Unit = (myName: String) => println(s"Hello World!, my 
 // Parameters with default values
 def helloWorld2(myName: String = "Sumit"): Unit = println(s"Hello World!, my name is ${myName}")
 
-// Function Currying
-def op(a: Int, b: Int)(f: (Int, Int) => Int): Int = f(a, b)
+// For Polymorphic functions this doesn't work so well - you'll need to explicitly provide the input + output types
+def op1(a: Int, b: Int, f: (Int, Int) => Int): Int = f(a, b)
 
 // Functions of type scala.Function1, scala.Function2, etc.
 var x = () => println("Hello")
