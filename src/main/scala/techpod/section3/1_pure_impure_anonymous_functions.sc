@@ -7,6 +7,17 @@
   Exercises for working through together are at the end of this file!!!
 */
 
+// Anonymous functions are functions that don't have a name, here is an example with syntax
+(a: Int) => a * 100
+
+// Anonymous functions are passed to other functions mostly - especially when using Collections
+List(1 ,2 , 3).map(a => a * 2)
+
+// Passing a named function to a collection method
+val squareInt: Int => Int = (in : Int) => in * in
+List(1, 2, 3).map(squareInt)
+
+
 // Simple examples of Pure Functions
 def iterateNumberByOne(x: Int): Int = x + 1 // you don't need to provide a return statement - the last line in the function def is the returned object
 def squareANumber(x: Int): Int = x ^ 2
@@ -27,10 +38,7 @@ def impureFuncExample1 (a: Int): Int = { // A function whose input doesn't compl
 }
 val impureFuncExample2: Int => Int = (x: Int) => x * 20 + globallySetConditionVariable // same as above def
 
-// Anonymous functions are functions that don't have a name, here is an example with syntax
-(a: Int) => a * 100
 
-List(1 ,2 , 3).map(a => a * 2) // Anonymous functions are passed to other functions mostly - especially when using Collections
 
 
 // Exercises

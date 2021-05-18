@@ -7,16 +7,28 @@
   2. When generalizing functions
  */
 
-val in: List[Int] = List(10, 22, 44, 28, 299, 11)
+// Anonymous functions are functions that don't have a name, here is an example with syntax
+(a: Int) => a * 100
 
-// An Example of Point #1 above - i.e. when using map(), etc. with Collections
+// Anonymous functions are passed to other functions mostly - especially when using Collections
+List(1 ,2 , 3).map(a => a * 2)
+
+// Passing a named function to a collection method
+val squareInt: Int => Int = (in : Int) => in * in
+List(1, 2, 3).map(squareInt)
+
+
+val in: List[Int] = List(10, 22, 44, 28, 299, 11)
 
 // How to double each element in a List
 val out = in.map(x => x * 2)
 out.foreach(x => println(x))
 
+def main(in: Array[String]): Unit = {
 
-// An Example of Point #2 above - i.e. How to generalise Functions
+}
+
+
 
 // Problem Statement: A function that checks that the sum of 2 numbers meets a criteria
 def checkThatSumOf2NumbersIsGreaterThan100(a: Int, b: Int): Boolean = (a + b) match {
