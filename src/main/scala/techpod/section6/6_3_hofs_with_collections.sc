@@ -11,7 +11,6 @@ val listOfTempsInDegC: List[Double] = List(23.1, 31.2, 18.2, 22.3, 23.2, 19,2, 2
 val listOfTempsInDegF: List[Double] = listOfTempsInDegC.map(_ * 9/5 + 32)
 listOfTempsInDegC.map(element => element * 9/5 + 32)
 
-val s
 
 
 
@@ -24,6 +23,13 @@ listOfSalesByNumbers.foldLeft(0.0)(_ + _)
 listOfSalesByNumbers.reduce(_ + _)
 listOfSalesByNumbers.foldRight(0.0)(_ + _) // foldRight == foldLeft only if the function is associative
 listOfSalesByNumbers.sum
+
+
+// Understanding flatMap
+// flatMap = map + flatten
+
+
+
 
 
 // Example: List of sales by region
@@ -65,9 +71,17 @@ val documents = List(
 val docsThatHaveMoreThan2Tokens = documents.filter(_._2.length > 2)
 
 // List those documents that have the tokens "E" and "M" in them
-val docsThatHaveTokensEAndM = documents.filter(docDef => docDef._2.exists(_ == "E") || docDef._2.exists(_ == "M"))
+val docsThatHaveTokensEAndM = documents.filter(docDef => docDef._2.contains("E") || docDef._2.contains("M"))
 
 // Produce a List of Tuples, that shows which Documents each Token (i.e. "A" to "H") appears in
-val reverseIndexTuples = documents.flatMap()
+val reverseIndexTuples = documents.flatMap(docDef => docDef._2.map((docDef._1, _)))
 
-documents.map(docDef => (docDef._1, docDef._2.map()))
+// documents.map(docDef => (docDef._1, docDef._2.map()))
+
+
+
+// Example: Common practical use of the above - using Case classes to model each row of the List
+case class Documents (id: Int, listOfTokens: List[String])
+val documentsUsingCaseClasses = documents.map(e => Documents(e._1,e._2))
+
+val docsThatHaveMoreThan2Tokens_1 = documentsUsingCaseClasses.filter(_.listOfTokens.length > 2)
