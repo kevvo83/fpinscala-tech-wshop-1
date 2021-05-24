@@ -85,3 +85,4 @@ case class Documents (id: Int, listOfTokens: List[String])
 val documentsUsingCaseClasses = documents.map(e => Documents(e._1,e._2))
 
 val docsThatHaveMoreThan2Tokens_1 = documentsUsingCaseClasses.filter(_.listOfTokens.length > 2)
+//
