@@ -11,9 +11,13 @@ def sum(ls: List[Int]): Int = {
 
 sum(ls)
 
-def sum2(ls: List[Int]): Int = ls match {
+def sum2(ls: List[Int]): Int = ls.foldLeft(0){(a,e) => a+e}
+
+sum2(ls)
+
+def sum3(ls: List[Int]): Int = ls match {
   case Nil => 0
   case head :: tail => head + sum2(tail)
 }
 
-sum2(ls)
+sum3(ls)
